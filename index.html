@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Snu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <img src="Kalkulator_Snu-removebg.png" alt="Kalkulator Snu" class="header-logo" onclick="window.location.reload()">
+    
+    <div class="content-wrapper">
+        <div class="calculator-container" id="calculatorContainer">
+            <h1>Kalkulator Snu</h1>
+
+            <p class="info-text">O której godzinie chcesz się obudzić?</p>
+
+            <div class="time-wheel-container">
+                <div class="selection-highlight"></div>
+                <div class="time-wheel">
+                    <div class="wheel-column hours"></div>
+                    <div class="wheel-separator">:</div>
+                    <div class="wheel-column minutes"></div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button class="calculate-button" onclick="calculateSleepTimes()">Oblicz porę snu 🌛</button>
+            </div>
+
+            <div class="bottom-section">
+                <p class="info-text">Jeśli chcesz iść spać teraz...</p>
+                <div class="button-container">
+                    <button class="calculate-button" onclick="calculateWakeTimes()">Oblicz godzinę pobudki 🌛</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-section hidden" id="sleepResults">
+            <p class="result-info">Przeciętny człowiek zasypia w ciągu 15 minut.</p>
+            <p class="result-info">Aby obudzić się wypoczętym o godzinie <span class="target-hour"></span>, powinieneś/aś położyć się spać o jednej z następujących godzin:</p>
+            <div id="sleepTimes" class="sleep-times-container"></div>
+            <button class="back-button" onclick="showCalculator()">Powrót do kalkulatora 🔄</button>
+        </div>
+
+        <div class="results-section hidden" id="wakeResults">
+            <h3>Najlepsze godziny pobudki jeśli chcesz iść spać teraz:</h3>
+            <div id="wakeTimes"></div>
+            <button class="back-button" onclick="showCalculator()">Powrót do kalkulatora 🔄</button>
+        </div>
+    </div>
+
+    <div class="author-section">
+        Made by <a href="https://github.com/jokur-js" target="_blank" rel="noopener">Jokur</a> © 2024
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

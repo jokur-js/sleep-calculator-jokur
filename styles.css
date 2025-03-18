@@ -1,0 +1,337 @@
+/* Reset i podstawowe style */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #0A0E1F;
+    color: white;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Layout główny */
+.calculator-container {
+    flex: 1;
+    width: min(100%, 1200px);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.calculator-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Logo i nagłówek */
+.logo, h1 {
+    display: none;
+    align-items: center;
+}
+
+.header-logo {
+    width: min(600px, 100vw);
+    height: auto;
+    max-width: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    justify-content: center;
+    display: flex;
+    margin-inline: auto;
+}
+
+.header-logo:hover {
+    transform: scale(1.02);
+}
+
+/* Przyciski */
+.button-container {
+    width: clamp(240px, 80vw, 300px);
+    margin-inline: auto;
+}
+
+.calculate-button {
+    width: 100%;
+    background-color: #ffb700ee;
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.calculate-button:hover {
+    background-color: #e6a600;
+    transform: scale(1.02);
+}
+
+.back-button {
+    background-color: #ffb700ee;
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px auto;
+    display: block;
+}
+
+.back-button:hover {
+    background-color: #e6a600;
+    transform: scale(1.02);
+}
+
+/* Karty z czasem */
+.time-card {
+    flex: 0 0 150px;
+    width: 120px;
+    height: clamp(65px, 15vw, 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.time-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Koło czasu */
+.time-wheel-container {
+    position: relative;
+    width: clamp(240px, 80vw, 300px);
+    height: clamp(150px, 40vw, 180px);
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.time-wheel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 20px;
+}
+
+/* Kolumny koła czasu */
+.wheel-column {
+    height: 180px;
+    width: 60px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: relative;
+}
+
+.wheel-column::-webkit-scrollbar {
+    display: none;
+}
+
+.wheel-items-container {
+    padding: 70px 0;
+}
+
+/* Elementy koła czasu */
+.wheel-item {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.3);
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.wheel-item.active {
+    color: white;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.wheel-item.adjacent {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 24px;
+}
+
+/* Efekty wizualne koła czasu */
+.selection-highlight {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 50%;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-50%);
+    pointer-events: none;
+    border-radius: 8px;
+}
+
+.wheel-separator {
+    font-size: 26px;
+    color: white;
+    opacity: 0.5;
+    padding: 0 5px;
+}
+
+/* Gradienty koła czasu */
+.time-wheel-container::before,
+.time-wheel-container::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 70px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.time-wheel-container::before {
+    top: 0;
+    background: linear-gradient(to bottom, #0A0E1F 0%, rgba(10,14,31,0) 100%);
+}
+
+.time-wheel-container::after {
+    bottom: 0;
+    background: linear-gradient(to top, #0A0E1F 0%, rgba(10,14,31,0) 100%);
+}
+
+/* Sekcja wyników */
+.results-section {
+    margin-top: 30px;
+    width: min(100%, 1200px);
+    opacity: 1;
+    transition: opacity 0.6s ease;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.results-section.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.results-section h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+.time-hour {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.time-cycles {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+
+/* Informacje tekstowe */
+.result-info {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.target-hour {
+    font-weight: 600;
+}
+
+.info-text {
+    color: rgba(255, 255, 255, 0.952);
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Wrapper dla contentu */
+.content-wrapper {
+    position: relative;
+    min-height: calc(100vh - 60px);
+    width: 100%;
+    padding-bottom: 60px;
+}
+
+/* Sekcja autora */
+.author-section {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0A0E1F;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.849);
+    z-index: 100;
+}
+
+.author-section a {
+    color: rgba(255, 255, 255, 0.623);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.author-section a:hover {
+    color: rgba(255, 255, 255, 0.849);
+}
+
+/* Kontenery wyników */
+#sleepTimes, #wakeTimes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(6px, 1.5vw, 10px);
+    width: 100%;
+    padding: 10px;
+}
+
+.bottom-section {
+    margin-top: auto;
+    padding-top: 60px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.bottom-section p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
