@@ -141,7 +141,6 @@ function showResults(resultsId) {
     const calculatorContainer = document.getElementById('calculatorContainer');
     const resultsContainer = document.getElementById(resultsId);
 
-    // Pokazujemy nowy widok przed ukryciem starego
     resultsContainer.style.display = 'block';
     setTimeout(() => {
         calculatorContainer.classList.add('hidden');
@@ -155,14 +154,12 @@ function showCalculator() {
     const sleepResults = document.getElementById('sleepResults');
     const wakeResults = document.getElementById('wakeResults');
 
-    // Pokazujemy kalkulator przed ukryciem wyników
     calculatorContainer.style.display = 'flex';
     setTimeout(() => {
         sleepResults.classList.add('hidden');
         wakeResults.classList.add('hidden');
         calculatorContainer.classList.remove('hidden');
 
-        // Ukrywamy wyniki po zakończeniu animacji
         setTimeout(() => {
             sleepResults.style.display = 'none';
             wakeResults.style.display = 'none';
