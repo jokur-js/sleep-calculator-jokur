@@ -145,7 +145,6 @@ function showResults(resultsId) {
     setTimeout(() => {
         calculatorContainer.classList.add('hidden');
         resultsContainer.classList.remove('hidden');
-        resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 100);
 }
 
@@ -232,4 +231,4 @@ function calculateWakeTimes() {
     showResults('wakeResults');
 }
 
-document.addEventListener('DOMContentLoaded', initTimeWheel); 
+document.addEventListener('DOMContentLoaded', initTimeWheel);
