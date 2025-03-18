@@ -1,7 +1,7 @@
 # 🌙 Kalkulator Snu
 
 ## 📱 Aplikacja
-[Link do aplikacji](https://kalkulator-snu-jokur.netlify.app/)
+[Link do aplikacji](https://kalkulatorsnu-jokur.netlify.app/)
 
 ## 📝 Opis
 Kalkulator Snu to intuicyjna aplikacja webowa pomagająca użytkownikom zaplanować optymalny czas snu. Wykorzystując 90-minutowe cykle snu, aplikacja sugeruje najlepsze momenty do położenia się spać lub obudzenia, aby zakończyć sen między cyklami i czuć się wypoczętym.
@@ -21,7 +21,7 @@ Kalkulator Snu to intuicyjna aplikacja webowa pomagająca użytkownikom zaplanow
 ## 🚀 Instalacja i uruchomienie
 1. Sklonuj repozytorium:
 ```bash
-git clone https://github.com/jokur-js/kalkulator-snu.git
+git clone https://github.com/jokur-js/sleep-calculator-jokur.git
 ```
 2. Otwórz plik `index.html` w przeglądarce
 
